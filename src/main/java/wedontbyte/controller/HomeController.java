@@ -39,12 +39,15 @@ public class HomeController {
             String[] test = parameterMap.get("issue");
             String typeString = test[0];
             Type type = Type.valueOf("litter");
+
+            Location location = new Location(convertStringToFloat(parameterMap.get("latitude")[0]),
+                    convertStringToFloat(parameterMap.get("longitude")[0]));
             IssueDto issueDto = new IssueDto(
                     UUID.randomUUID().toString(),
-                    new Location(1.0f, 2.0f),
+                    location,
                     Type.valueOf(parameterMap.get("issue")[0]),
                     parameterMap.get("comments")[0],
-                    5,
+                    convertStringToInt(parameterMap.get("rating")[0]),
                     System.currentTimeMillis());
 
             issueDto.setIssueTime(System.currentTimeMillis());
@@ -54,6 +57,14 @@ public class HomeController {
             return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<String>(HttpStatus.CREATED);
+    }
+
+    private Float convertStringToFloat(String string) {
+        return Float.parseFloat(string);
+    }
+
+    private int convertStringToInt(String string) {
+        return Integer.parseInt(string);
     }
 
 }
