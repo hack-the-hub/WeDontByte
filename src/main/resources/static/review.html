@@ -114,6 +114,17 @@
     </div>
      </field>
     </form>
+
+    <script>
+        function retrieveAll() {
+        var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/all?timestamp=0', false);
+		xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+        var json = xhr.response;
+        var jsonObject = JSON.parse(json);
+        }
+    </script>
 </div>
 
 <div id="map" style="height:400px;width:100%;"></div>
@@ -168,23 +179,72 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js
     
    <script>
 	
-      function initMap() {
+ function initMap() {
+ 		var Marklat = 54.5969959
+		var Marklong = -5.9305437
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 15
+          center: {lat: Marklat, lng: Marklong},
+          zoom: 17
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
 		var pos = null
-		var Marklat = 54.5969959
-		var Marklong = -5.9305437
-		
-		var locations = [
-     ['Title A', 3.180967,101.715546, 1],
-     ['Title B', 3.200848,101.616669, 2],
-     ['Title C', 3.147372,101.597443, 3],
-     ['Title D', 3.19125,101.710052, 4]
-	 ]
-		
+
+
+var dogPoo= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'gold',
+          fillOpacity: 100,
+          scale: 1,
+          strokeColor: 'gold',
+          strokeWeight: 20
+        };
+
+var litter= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'purple',
+          fillOpacity: 100,
+          scale: 1,
+          strokeColor: 'purple',
+          strokeWeight: 20
+        };
+
+var vandal= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'green',
+          fillOpacity: 100,
+          scale: 1,
+          strokeColor: 'green',
+          strokeWeight: 20
+        };
+
+var noise= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'black',
+          fillOpacity: 100,
+          scale: 1,
+          strokeColor: 'black',
+          strokeWeight: 20
+        };
+
+var antisocialBehaviour= {
+                    path:  google.maps.SymbolPath.CIRCLE,
+          fillColor: 'red',
+          fillOpacity: 100,
+          scale: 1,
+          strokeColor: 'red',
+          strokeWeight: 20
+        };
+
+var burglary= {
+          path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'blue',
+          fillOpacity: 100,
+          scale: 1,
+          strokeColor: 'blue',
+          strokeWeight: 20
+        };
+
+
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -203,19 +263,59 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-		
-		var markers = [
-      ['City Hall', 54.596259, -5.931319],
-      ['SSE', 54.6036434, -5.9142279],
-      ['Waterfront hall', 54.5972401, -5.9221227],
-      ['GOH', 54.5953611, -5.9372377],
-      ['QUB', 54.5844087, -5.9340494]
-    ];
-	
+
+    	var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/all?timestamp=0', false);
+		xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+        var json = xhr.response;
+        var jsonObject = JSON.parse(json);
+
+		var markers = [[]];
+
+		for(var issue in jsonObject) {
+		  var location = jsonObject[issue].location;
+		  var lat = location["latitude"]
+		  var long = location["longitude"]
+		  var type = jsonObject[issue].type;
+		  var array = [type, lat ,long];
+		  markers.push(array);
+		}
+
 	var infowindow = new google.maps.InfoWindow(), marker, i;
-for (i = 0; i < markers.length; i++) {  
+for (i = 1; i < markers.length; i++) {
+    var iconToSet = null;
+
+    switch(markers[i][0]){
+   case 'litter':
+           iconToSet = litter;
+           break;
+      case 'burglary':
+              iconToSet = burglary;
+              break;
+      case 'antisocialBehaviour':
+              iconToSet = antisocialBehaviour;
+              break;
+      case 'dogPoo':
+              iconToSet = dogPoo;
+              break;
+      case 'vandal':
+              iconToSet = vandal;
+              break;
+      case 'noise':
+           iconToSet = noise;
+              break;
+      default:
+              infoWindow.setPosition(map.getCenter());
+              infoWindow.setText("Error issue type invalid!");
+      }
+
+    var lat1 = markers[i][1];
+    var long1 = markers[i][2];
+
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(markers[i][1], markers[i][2]),
+        icon: iconToSet,
         map: map
     });
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
