@@ -7,7 +7,10 @@ import lombok.ToString;
 @ToString
 public enum Type {
     litter,
-    graffiti,
+    vandal,
     dog_foul,
+    anti_social_behaviour,
+    noise,
+    traffic,
 
 }

@@ -86,9 +86,9 @@
             <option value= "*">All</option>
             <option value= "dog_foul">Dog Foul</option>
             <option value= "litter">Litter</option>
-            <option value= "graffiti">Graffiti</option>
+            <option value= "vandal">Vandalism</option>
             <option value= "anti_social_behaviour">Anti-Social Behaviour</option>
-            <option value= "burglary">Burglary</option>  
+            <option value= "traffic">Traffic</option>  
             <option value= "noise">Noise</option>
           </select>
         </div>
@@ -108,9 +108,14 @@
           </select>
         </div>
     </div>
+         
+    <div class="col-sm-3">
+    <img src="img/Legend.png">
+    </div>
+         
  </div>
     <div class="row">
-         <button class="btn btn-primary btn-lg pull-right" type="submit">Submit</button>
+         <button class="btn btn-primary btn-lg" type="submit">Submit</button>
     </div>
      </field>
     </form>
@@ -194,7 +199,7 @@ var dogPoo= {
                     path: google.maps.SymbolPath.CIRCLE,
           fillColor: 'gold',
           fillOpacity: 100,
-          scale: 1,
+          scale: 5,
           strokeColor: 'gold',
           strokeWeight: 20
         };
@@ -203,7 +208,7 @@ var litter= {
                     path: google.maps.SymbolPath.CIRCLE,
           fillColor: 'purple',
           fillOpacity: 100,
-          scale: 1,
+          scale: 5,
           strokeColor: 'purple',
           strokeWeight: 20
         };
@@ -212,7 +217,7 @@ var vandal= {
                     path: google.maps.SymbolPath.CIRCLE,
           fillColor: 'green',
           fillOpacity: 100,
-          scale: 1,
+          scale: 5,
           strokeColor: 'green',
           strokeWeight: 20
         };
@@ -221,7 +226,7 @@ var noise= {
                     path: google.maps.SymbolPath.CIRCLE,
           fillColor: 'black',
           fillOpacity: 100,
-          scale: 1,
+          scale: 5,
           strokeColor: 'black',
           strokeWeight: 20
         };
@@ -230,7 +235,7 @@ var antisocialBehaviour= {
                     path:  google.maps.SymbolPath.CIRCLE,
           fillColor: 'red',
           fillOpacity: 100,
-          scale: 1,
+          scale: 5,
           strokeColor: 'red',
           strokeWeight: 20
         };
@@ -239,7 +244,7 @@ var burglary= {
           path: google.maps.SymbolPath.CIRCLE,
           fillColor: 'blue',
           fillOpacity: 100,
-          scale: 1,
+          scale: 5,
           strokeColor: 'blue',
           strokeWeight: 20
         };
@@ -290,10 +295,10 @@ for (i = 1; i < markers.length; i++) {
    case 'litter':
            iconToSet = litter;
            break;
-      case 'burglary':
+      case 'traffic':
               iconToSet = burglary;
               break;
-      case 'antisocialBehaviour':
+      case 'anti_social_behaviour':
               iconToSet = antisocialBehaviour;
               break;
       case 'dogPoo':
@@ -328,7 +333,6 @@ for (i = 1; i < markers.length; i++) {
 		
 }
 	  
-
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);

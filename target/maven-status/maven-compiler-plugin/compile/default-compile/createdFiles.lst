@@ -1,11 +1,11 @@
 wedontbyte\WeDontByteApplication.class
 wedontbyte\service\ApiRepositoryService.class
 wedontbyte\config\Beans.class
-wedontbyte\data\Location.class
 wedontbyte\service\ApiService.class
-wedontbyte\data\Type.class
 wedontbyte\dto\IssueDto.class
 wedontbyte\service\impl\ApiServiceImpl.class
+wedontbyte\data\Location.class
+wedontbyte\data\Type.class
 wedontbyte\controller\ResultsController.class
 wedontbyte\repository\ApiRepository.class
 wedontbyte\dto\IssueDto$IssueDtoBuilder.class
