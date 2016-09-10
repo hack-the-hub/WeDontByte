@@ -35,6 +35,7 @@ public class HomeController {
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<String> create(HttpServletRequest request) {
         try {
+
             Map<String, String[]> parameterMap = request.getParameterMap();
             String[] test = parameterMap.get("issue");
             String typeString = test[0];
