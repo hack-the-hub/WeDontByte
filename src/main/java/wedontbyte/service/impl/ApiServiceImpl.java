@@ -30,26 +30,27 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public void createData(IssueDto issueDto) {
+        apiRepository.createData(issueDto);
     }
 
     @Override
     public List<IssueDto> retrieveAll(Long timestamp) {
-        return null;
+        return apiRepository.retrieveAll(timestamp);
     }
 
     @Override
     public List<IssueDto> retrieveAllFilterByType(Type type, Long timestamp) {
-        return null;
+        return apiRepository.retrieveAllFilterByType(type, timestamp);
     }
 
     @Override
     public List<IssueDto> retrieveAllFilterByLocation(Location location, Long timestamp) {
-        return null;
+        return apiRepository.retrieveAllFilterByLocation(location, timestamp);
     }
 
     @Override
     public List<IssueDto> retrieveAllFilterByLocationAndType(Type type, Location location, Long timestamp) {
-        return null;
+        return apiRepository.retrieveAllFilterByLocationAndType(type, location, timestamp);
     }
 
 }
