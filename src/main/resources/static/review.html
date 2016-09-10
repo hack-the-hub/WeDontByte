@@ -63,7 +63,7 @@
 <div id="filter" class="container-fluid">
     <form>
  <div class="row">
-     
+     <fieldset>
     <div class="col-sm-3">
     <!-- Date button -->
          <div class="form-group">
@@ -110,8 +110,9 @@
     </div>
  </div>
     <div class="row">
-         <button class="btn btn-primary btn-lg pull-right" type="submit" onclick="onClick(day,issue,rating)">Submit</button>
+         <button class="btn btn-primary btn-lg pull-right" type="submit">Submit</button>
     </div>
+     </field>
     </form>
 </div>
 
@@ -135,23 +136,6 @@
 <!-- Scripts -->    
     
 <script>
-    
-function onClick(input_1,input_2,input_3){
-  updateDay(input_1);
-  updateIssue(input_2);
-  updateRating(input_3);
-}
-    
-function updateDay(input){
-    return document.getElementById('day').value = input;
-}
-function updateIssue(input){
-    return document.getElementById('issue').value = input;
-}
-function updateRating(input){
-    return document.getElementById('day').value = input;
-}
-    
     
 //Morris charts snippet - js
 
