@@ -199,6 +199,9 @@
               
             init_lat = position.coords.latitude;
             init_lng = position.coords.longitude;
+            
+           document.getElementById('lat').value = init_lat.toString();
+           document.getElementById('lng').value = init_lng.toString();
               
             var pos = {
               lat: position.coords.latitude,
@@ -216,8 +219,6 @@
         } else {
           handleLocationError(false, infoWindow, map.getCenter());
         }
-         document.getElementById('lat').value = init_lat.toString();
-         document.getElementById('lng').value = init_lng.toString();
       }
     
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
