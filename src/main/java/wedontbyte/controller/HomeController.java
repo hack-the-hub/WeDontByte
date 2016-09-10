@@ -48,7 +48,7 @@ public class HomeController {
                     System.currentTimeMillis());
 
             issueDto.setIssueTime(System.currentTimeMillis());
-//            apiService.createData(issueDto);
+            apiService.createData(issueDto);
         } catch (Exception e) {
             LOGGER.error(e.getMessage().toString());
             return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);

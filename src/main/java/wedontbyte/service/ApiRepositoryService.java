@@ -3,5 +3,5 @@ package wedontbyte.service;
 /**
  * Created by mark on 10/09/2016.
  */
-public interface ApiRepositryService {
+public interface ApiRepositoryService {
 }
