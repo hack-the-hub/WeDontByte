@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Custom Marker Symbols</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      // This example uses SVG path notation to add a vector-based symbol
+      // as the icon for a marker. The resulting icon is a star-shaped symbol
+      // with a pale yellow fill and a thick yellow border.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 17,
+          center: {lat: 54.59, lng: -5.93}
+        });
+
+        var dogPoo= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'gold',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: 'gold',
+          strokeWeight: 20
+        };
+
+var litter= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'purple',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: 'purple',
+          strokeWeight: 20
+        };
+
+var vandal= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'green',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: 'green',
+          strokeWeight: 20
+        };
+
+var noise= {
+                    path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'black',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: 'black',
+          strokeWeight: 20
+        };
+
+var antisocialBehaviour= {
+                    path:  google.maps.SymbolPath.CIRCLE,
+          fillColor: 'red',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: 'red',
+          strokeWeight: 20
+        };
+
+var burglary= {
+          path: google.maps.SymbolPath.CIRCLE,
+          fillColor: 'blue',
+          fillOpacity: 1.0,
+          scale: 1,
+          strokeColor: 'blue',
+          strokeWeight: 20
+        };
+
+var collection = new Array();
+
+//a set of locations stored in array
+collection[0] = new google.maps.LatLng(54.597,-5.93);
+collection[1] = new google.maps.LatLng(54.597, -5.931);
+collection[2] = new google.maps.LatLng(54.598, -5.932);
+collection[3] = new google.maps.LatLng(54.5981, -5.9321);
+collection[4] = new google.maps.LatLng(54.5982, -5.9322);
+//for(var i=0; i<collection.length; i++){
+
+//var pointMarker[0] = new google.maps.Marker({
+  //      position: collection[0],
+    //    map: map,
+      //  icon: dogPoo,
+        //animation: google.maps.Animation.BOUNCE,
+        //title: "collection"+ 0
+    //});
+var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(54.5969,-5.929),
+          icon: dogPoo,
+          map: map
+        });
+
+var marker2 = new google.maps.Marker({
+position: collection[0],
+icon: burglary,
+map: map
+});
+
+var marker3 = new google.maps.Marker({
+position: collection[1],
+icon: antisocialBehaviour,
+map: map
+});
+
+var marker4 = new google.maps.Marker({
+position: collection[2],
+icon: vandal,
+map: map
+});
+
+var marker5 = new google.maps.Marker({
+position: collection[3],
+icon: noise,
+map: map
+});
+
+var marker6 = new google.maps.Marker({
+position: collection[4],
+icon: litter,
+map: map
+});
+
+
+//for(var i=0; i<collection.length; i++){
+
+//var pointMarker[i] = new google.maps.Marker({
+      //  position: collection[i],
+      //  map: map,
+      //  icon: dogPo,
+      //  animation: google.maps.Animation.BOUNCE,
+      //  title: "collection"+ i 
+    //});
+
+      //  var marker = new google.maps.Marker({
+    //      position: map.getCenter(),
+          //icon: dogPoo,
+        //  map: map
+      //  });
+    //  }
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_0Fz4z3ptC-hPMF242Q-ENqCHxVUwPw4
+
+&callback=initMap">
+    </script>
+
+  </body>
+</html>

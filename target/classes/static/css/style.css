@@ -76,7 +76,7 @@ body {
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
   .panel-footer .btn:hover {
-      border: 1px solid #f4511e;
+      border: 1px solid #3399ff;
       background-color: #fff !important;
       color: #f4511e;
   }
@@ -120,7 +120,7 @@ body {
       color: #fff !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #f4511e !important;
+      color: #3399ff !important;
       background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {

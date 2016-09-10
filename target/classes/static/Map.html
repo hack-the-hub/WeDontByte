@@ -55,15 +55,26 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
 
-		var xhr = new XMLHttpRequest();
+    	var xhr = new XMLHttpRequest();
 		xhr.open('GET', '/all?timestamp=0', false);
 		xhr.setRequestHeader("Content-Type", "application/json");
-        var json23 = xhr.send();
-        var jsonObject = xhr.response;
-		var markers = [];
+        xhr.send();
+        var json = xhr.response;
+        var jsonObject = JSON.parse(json);
+
+		var markers = [[]];
+
+		for(var issue in jsonObject) {
+		  var location = jsonObject[issue].location;
+		  var lat = location["latitude"]
+		  var long = location["longitude"]
+		  var type = jsonObject[issue].type;
+		  var array = [type, lat ,long];
+		  markers.push(array);
+		}
 	
 	var infowindow = new google.maps.InfoWindow(), marker, i;
-for (i = 0; i < markers.length; i++) {  
+for (i = 0; i < markers.length; i++) {
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(markers[i][1], markers[i][2]),
         map: map
