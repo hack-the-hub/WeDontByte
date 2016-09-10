@@ -23,21 +23,23 @@
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 17,
-          center: {lat: -25.363882, lng: 131.044922}
+          center: {lat: 54.596018, lng: -5.930242}
         });
+          
 
-        var goldStar = {
+        var dogFoul = {
           path: google.maps.SymbolPath.CIRCLE ,
           fillColor: 'yellow',
-          fillOpacity: 0,
+          fillOpacity: 0.1,
           scale: 1,
           strokeColor: 'gold',
           strokeWeight: 14
         };
 
+         // 54.595993, -5.931001
         var marker = new google.maps.Marker({
-          position: map.getCenter(),
-          icon: goldStar,
+          position: {lat: 54.595993, lng:-5.931001} ,
+          icon: dogFoul,
           map: map
         });
       }

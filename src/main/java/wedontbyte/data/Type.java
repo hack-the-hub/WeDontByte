@@ -7,5 +7,7 @@ import lombok.ToString;
 @ToString
 public enum Type {
     litter,
-    graffiti
+    graffiti,
+    dog_foul,
+
 }

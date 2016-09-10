@@ -54,14 +54,14 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-		
-		var markers = [
-      ['City Hall', 54.596259, -5.931319],
-      ['SSE', 54.6036434, -5.9142279],
-      ['Waterfront hall', 54.5972401, -5.9221227],
-      ['GOH', 54.5953611, -5.9372377],
-      ['QUB', 54.5844087, -5.9340494]
-    ];
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/all?timestamp=0', false);
+		xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send();
+        var jsonObject = xhr.response;
+
+		var markers = [];
 	
 	var infowindow = new google.maps.InfoWindow(), marker, i;
 for (i = 0; i < markers.length; i++) {  
